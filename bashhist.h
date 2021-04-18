@@ -39,6 +39,8 @@
 #  endif /* !HISTEXPAND_DEFAULT */
 #endif
 
+extern int private_history_mode;
+
 extern int remember_on_history;
 extern int enable_history_list;		/* value for `set -o history' */
 extern int literal_history;		/* controlled by `shopt lithist' */

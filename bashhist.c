@@ -91,6 +91,8 @@ static struct ignorevar histignore =
 int remember_on_history = 0;
 int enable_history_list = -1;	/* value for `set -o history' */
 
+int private_history_mode = 0;
+
 /* The number of lines that Bash has added to this history session.  The
    difference between the number of the top element in the history list
    (offset from history_base) and the number of lines in the history file.

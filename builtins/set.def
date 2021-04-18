@@ -395,7 +395,7 @@ set_ignoreeof (on_or_off, option_name)
   ignoreeof = on_or_off == FLAG_ON;
   unbind_variable_noref ("ignoreeof");
   if (ignoreeof)
-    bind_variable ("IGNOREEOF", "10", 0); 
+    bind_variable ("IGNOREEOF", "10", 0);
   else
     unbind_variable_noref ("IGNOREEOF");
   sv_ignoreeof ("IGNOREEOF");
@@ -468,16 +468,16 @@ bash_set_history (on_or_off, option_name)
 {
   if (on_or_off == FLAG_ON)
     {
-      enable_history_list = 1;
-      bash_history_enable ();
-      if (history_lines_this_session == 0)
-	load_history ();
+      private_history_mode = 0;
     }
   else
     {
-      enable_history_list = 0;
-      bash_history_disable ();
+      private_history_mode = 1;
     }
+    enable_history_list = 1;
+    bash_history_enable ();
+    if (history_lines_this_session == 0)
+      load_history ();
   return (1 - enable_history_list);
 }
 #endif
@@ -706,7 +706,7 @@ set_builtin (list)
 	    break;
 	}
     }
-    
+
   /* Do the set command.  While the list consists of words starting with
      '-' or '+' treat them as flags, otherwise, start assigning them to
      $1 ... $n. */
