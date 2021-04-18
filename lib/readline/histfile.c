@@ -161,7 +161,7 @@ history_filename (const char *filename)
 
   if (return_val)
     return (return_val);
-  
+
   home = sh_get_env_value ("HOME");
 #if defined (_WIN32)
   if (home == 0)
@@ -194,7 +194,7 @@ history_backupfile (const char *filename)
   ssize_t n;
   struct stat fs;
 
-  fn = filename;  
+  fn = filename;
 #if defined (HAVE_READLINK)
   /* Follow symlink to avoid backing up symlink itself; call will fail if
      not a symlink */
@@ -204,7 +204,7 @@ history_backupfile (const char *filename)
       fn = linkbuf;
     }
 #endif
-      
+
   len = strlen (fn);
   ret = xmalloc (len + 2);
   strcpy (ret, fn);
@@ -212,7 +212,7 @@ history_backupfile (const char *filename)
   ret[len+1] = '\0';
   return ret;
 }
-  
+
 static char *
 history_tempfile (const char *filename)
 {
@@ -223,7 +223,7 @@ history_tempfile (const char *filename)
   struct stat fs;
   int pid;
 
-  fn = filename;  
+  fn = filename;
 #if defined (HAVE_READLINK)
   /* Follow symlink so tempfile created in the same directory as any symlinked
      history file; call will fail if not a symlink */
@@ -233,7 +233,7 @@ history_tempfile (const char *filename)
       fn = linkbuf;
     }
 #endif
-      
+
   len = strlen (fn);
   ret = xmalloc (len + 11);
   strcpy (ret, fn);
@@ -251,7 +251,7 @@ history_tempfile (const char *filename)
 
   return ret;
 }
-  
+
 /* Add the contents of FILENAME to the history list, a line at a time.
    If FILENAME is NULL, then read from ~/.history.  Returns 0 if
    successful, or errno if not. */
@@ -512,7 +512,7 @@ histfile_restore (const char *backup, const char *orig)
 
 #define SHOULD_CHOWN(finfo, nfinfo) \
   (finfo.st_uid != nfinfo.st_uid || finfo.st_gid != nfinfo.st_gid)
-  
+
 /* Truncate the history file FNAME, leaving only LINES trailing lines.
    If FNAME is NULL, then use ~/.history.  Writes a new file and renames
    it to the original name.  Returns 0 on success, errno on failure. */
@@ -728,6 +728,10 @@ history_do_write (const char *filename, int nelements, int overwrite)
     /* Calculate the total number of bytes to write. */
     for (buffer_size = 0, i = history_length - nelements; i < history_length; i++)
       {
+        if(the_history[i]->private)
+        {
+          continue;
+        }
 	if (history_write_timestamps && the_history[i]->timestamp && the_history[i]->timestamp[0])
 	  buffer_size += strlen (the_history[i]->timestamp) + 1;
 	buffer_size += strlen (the_history[i]->line) + 1;
@@ -749,7 +753,7 @@ mmap_error:
 	FREE (tempname);
 	return rv;
       }
-#else    
+#else
     buffer = (char *)malloc (buffer_size);
     if (buffer == 0)
       {
@@ -765,6 +769,10 @@ mmap_error:
 
     for (j = 0, i = history_length - nelements; i < history_length; i++)
       {
+        if(the_history[i]->private)
+        {
+          continue;
+        }
 	if (history_write_timestamps && the_history[i]->timestamp && the_history[i]->timestamp[0])
 	  {
 	    strcpy (buffer + j, the_history[i]->timestamp);
