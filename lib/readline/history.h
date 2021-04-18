@@ -47,6 +47,7 @@ typedef struct _hist_entry {
   char *line;
   char *timestamp;		/* char * rather than time_t for read/write */
   histdata_t data;
+  int private;
 } HIST_ENTRY;
 
 /* Size of the history-library-managed space in history entry HS. */
@@ -81,6 +82,7 @@ extern void history_set_history_state PARAMS((HISTORY_STATE *));
 /* Place STRING at the end of the history list.
    The associated data field (if any) is set to NULL. */
 extern void add_history PARAMS((const char *));
+extern void add_private_history PARAMS((const char *));
 
 /* Change the timestamp associated with the most recent history entry to
    STRING. */
@@ -133,7 +135,7 @@ extern HIST_ENTRY **history_list PARAMS((void));
 /* Returns the number which says what history element we are now
    looking at.  */
 extern int where_history PARAMS((void));
-  
+
 /* Return the history entry at the current position, as determined by
    history_offset.  If there is no entry there, return a NULL pointer. */
 extern HIST_ENTRY *current_history PARAMS((void));

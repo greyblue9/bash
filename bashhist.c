@@ -599,7 +599,7 @@ pre_process_line (line, print_changes, addit)
 	    {
 #    if defined (READLINE)
 	      if (expanded == 2 && rl_dispatching == 0 && *history_value)
-#    else	      
+#    else
 	      if (expanded == 2 && *history_value)
 #    endif /* !READLINE */
 		maybe_add_history (history_value);
@@ -793,7 +793,7 @@ check_add_history (line, force)
 	 remove other matching lines from the history. */
       if (history_control & HC_ERASEDUPS)
 	hc_erasedups (line);
-        
+
       if (force)
 	{
 	  really_add_history (line);
@@ -859,7 +859,7 @@ bash_syslog_history (line)
     }
 }
 #endif
-     	
+
 /* Add a line to the history list.
    The variable COMMAND_ORIENTED_HISTORY controls the style of history
    remembering;  when non-zero, and LINE is not the first line of a
@@ -961,7 +961,14 @@ really_add_history (line)
 {
   hist_last_line_added = 1;
   hist_last_line_pushed = 0;
-  add_history (line);
+  if(private_history_mode)
+  {
+    add_private_history(line);
+  }
+  else
+  {
+    add_history (line);
+  }
   history_lines_this_session++;
 }
 

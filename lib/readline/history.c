@@ -165,7 +165,7 @@ history_set_pos (int pos)
   history_offset = pos;
   return (1);
 }
- 
+
 /* Return the current history array.  The caller has to be careful, since this
    is the actual array of data, and could be bashed or made corrupt easily.
    The array is terminated with a NULL pointer. */
@@ -226,6 +226,7 @@ alloc_history_entry (char *string, char *ts)
   temp->line = string ? savestring (string) : string;
   temp->data = (char *)NULL;
   temp->timestamp = ts;
+  temp->private = 0;
 
   return temp;
 }
@@ -268,8 +269,7 @@ hist_inittime (void)
 
 /* Place STRING at the end of the history list.  The data field
    is  set to NULL. */
-void
-add_history (const char *string)
+static void common_add_history (const char *string, int private)
 {
   HIST_ENTRY *temp;
   int new_length;
@@ -320,11 +320,27 @@ add_history (const char *string)
     }
 
   temp = alloc_history_entry ((char *)string, hist_inittime ());
+  if(private)
+  {
+    temp->private = 1;
+  }
 
   the_history[new_length] = (HIST_ENTRY *)NULL;
   the_history[new_length - 1] = temp;
   history_length = new_length;
 }
+
+
+void add_history(const char *string)
+{
+  common_add_history(string, 0);
+}
+
+void add_private_history(const char *string)
+{
+  common_add_history(string, 1);
+}
+
 
 /* Change the time stamp of the most recent history entry to STRING. */
 void
@@ -373,7 +389,7 @@ copy_history_entry (HIST_ENTRY *hist)
 
   return ret;
 }
-  
+
 /* Make the history entry at WHICH have LINE and DATA.  This returns
    the old entry so you can dispose of the data.  In the case of an
    invalid WHICH, a NULL pointer is returned. */
@@ -470,8 +486,8 @@ _hs_replace_history_data (int which, histdata_t *old, histdata_t *new)
       entry = the_history[last];
       entry->data = new;	/* XXX - we don't check entry->old */
     }
-}      
-  
+}
+
 /* Remove history element WHICH from the history.  The removed
    element is returned to you so you can free the line, data,
    and containing structure. */
