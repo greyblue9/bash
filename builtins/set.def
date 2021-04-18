@@ -469,15 +469,18 @@ bash_set_history (on_or_off, option_name)
   if (on_or_off == FLAG_ON)
     {
       private_history_mode = 0;
+      cleanup_private_history();
     }
   else
     {
       private_history_mode = 1;
     }
-    enable_history_list = 1;
-    bash_history_enable ();
-    if (history_lines_this_session == 0)
-      load_history ();
+
+  enable_history_list = 1;
+  bash_history_enable ();
+  if (history_lines_this_session == 0)
+    load_history ();
+
   return (1 - enable_history_list);
 }
 #endif

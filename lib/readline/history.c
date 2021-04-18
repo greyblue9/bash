@@ -621,3 +621,31 @@ clear_history (void)
   history_offset = history_length = 0;
   history_base = 1;		/* reset history base to default */
 }
+
+extern int history_lines_this_session;
+
+void
+cleanup_private_history (void)
+{
+  register int i;
+
+  /* This loses because we cannot free the data. */
+  for (i = history_length - 1; i > 0; i--)
+  {
+    HIST_ENTRY *hist_entry = the_history[i];
+    if(hist_entry)
+    {
+      if(hist_entry->private)
+      {
+        HIST_ENTRY *discard = remove_history(i);
+        if (discard)
+        {
+          free_history_entry (discard);
+          history_lines_this_session--;
+        }
+      }
+    }
+  }
+
+  history_offset = history_length;
+}

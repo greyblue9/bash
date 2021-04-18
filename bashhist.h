@@ -71,6 +71,7 @@ extern void bash_history_reinit PARAMS((int));
 extern void bash_history_disable PARAMS((void));
 extern void bash_history_enable PARAMS((void));
 extern void bash_clear_history PARAMS((void));
+extern void cleanup_private_history PARAMS((void));
 extern int bash_delete_histent PARAMS((int));
 extern int bash_delete_history_range PARAMS((int, int));
 extern int bash_delete_last_history PARAMS((void));
