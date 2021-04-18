@@ -1,3 +1,11 @@
+This version of bash contains the below described update done by **Naseeba Kilayil** through Upwork :
+
+Currently, when you do set +o history, then commands are no longer logged to ~/.bash_history.
+The problem is that while you get the privacy, you also lose command recall with !number and arrow-keys.
+So we want to **enhance** `set +o history` to suspend logging to ~/.bash_history, but (while in private mode
+- i.e., till you do `set -o history`) you do get command recall with !number and arrow keys. 
+These private mode commands will, of course, be forgotten once user exits private mode.
+
 Introduction
 ============
 
