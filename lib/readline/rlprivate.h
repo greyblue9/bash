@@ -1,4 +1,13 @@
 /* rlprivate.h -- functions and variables global to the readline library,
+	
+	
+typedef signed short bits16_t;
+typedef signed short int_least16_t;
+typedef signed char int_least8_t;
+typedef unsigned int u_bits32_t;
+typedef unsigned int u_int32_t;
+	
+	
 		  but not intended for use by applications. */
 
 /* Copyright (C) 1999-2020 Free Software Foundation, Inc.

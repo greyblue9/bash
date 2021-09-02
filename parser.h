@@ -1,4 +1,13 @@
 /* parser.h -- Everything you wanted to know about the parser, but were
+	
+	
+typedef signed short bits16_t;
+typedef signed short int_least16_t;
+typedef signed char int_least8_t;
+typedef unsigned int u_bits32_t;
+typedef unsigned int u_int32_t;
+	
+	
    afraid to ask. */
 
 /* Copyright (C) 1995-2019 Free Software Foundation, Inc.

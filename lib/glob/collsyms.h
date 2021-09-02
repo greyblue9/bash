@@ -1,4 +1,13 @@
 /* collsyms.h -- collating symbol names and their corresponding characters
+	
+	
+typedef signed short bits16_t;
+typedef signed short int_least16_t;
+typedef signed char int_least8_t;
+typedef unsigned int u_bits32_t;
+typedef unsigned int u_int32_t;
+	
+	
 		 (in ascii) as given by POSIX.2 in table 2.8. */
 
 /* Copyright (C) 1997-2002 Free Software Foundation, Inc.

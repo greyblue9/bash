@@ -1,4 +1,13 @@
 /* config-bot.h */
+	
+	
+typedef signed short bits16_t;
+typedef signed short int_least16_t;
+typedef signed char int_least8_t;
+typedef unsigned int u_bits32_t;
+typedef unsigned int u_int32_t;
+	
+	
 /* modify settings or make new ones based on what autoconf tells us. */
 
 /* Copyright (C) 1989-2009 Free Software Foundation, Inc.

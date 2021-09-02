@@ -1,4 +1,13 @@
 /* <dir.h> -- definitions for 4.2BSD-compatible directory access.
+	
+	
+typedef signed short bits16_t;
+typedef signed short int_least16_t;
+typedef signed char int_least8_t;
+typedef unsigned int u_bits32_t;
+typedef unsigned int u_int32_t;
+	
+	
    last edit:	09-Jul-1983	D A Gwyn. */
 
 #if defined (VMS)

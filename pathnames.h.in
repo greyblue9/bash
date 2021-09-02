@@ -1,4 +1,18 @@
 /* pathnames.h -- absolute filenames that bash wants for various defaults. */
+	
+	
+	
+	
+	
+	
+	
+	
+typedef signed int bits32_t;
+typedef signed long long bits64_t;
+typedef unsigned short u_bits16_t;
+typedef unsigned int u_bits32_t;
+	
+	
 
 /* Copyright (C) 1987-2009 Free Software Foundation, Inc.
 

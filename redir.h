@@ -1,4 +1,13 @@
 /* redir.h - functions from redir.c. */
+	
+	
+typedef signed short bits16_t;
+typedef signed short int_least16_t;
+typedef signed char int_least8_t;
+typedef unsigned int u_bits32_t;
+typedef unsigned int u_int32_t;
+	
+	
 
 /* Copyright (C) 1997, 2001, 2005, 2008, 2009-2020 Free Software Foundation, Inc.
 

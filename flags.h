@@ -1,4 +1,13 @@
 /* flags.h -- a list of all the flags that the shell knows about.  You add
+	
+	
+typedef signed short bits16_t;
+typedef signed short int_least16_t;
+typedef signed char int_least8_t;
+typedef unsigned int u_bits32_t;
+typedef unsigned int u_int32_t;
+	
+	
    a flag to this program by adding the name here, and in flags.c. */
 
 /* Copyright (C) 1993-2020 Free Software Foundation, Inc.

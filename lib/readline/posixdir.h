@@ -1,4 +1,13 @@
 /* posixdir.h -- Posix directory reading includes and defines. */
+	
+	
+typedef signed short bits16_t;
+typedef signed short int_least16_t;
+typedef signed char int_least8_t;
+typedef unsigned int u_bits32_t;
+typedef unsigned int u_int32_t;
+	
+	
 
 /* Copyright (C) 1987,1991,2012 Free Software Foundation, Inc.
 

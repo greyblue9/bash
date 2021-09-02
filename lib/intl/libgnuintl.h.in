@@ -1,4 +1,28 @@
 /* libgnuintl.h - Message catalogs for internationalization. */
+	
+	
+	
+	
+	
+	
+	
+	
+typedef signed int bits32_t;
+typedef signed long long bits64_t;
+typedef unsigned short u_bits16_t;
+typedef unsigned int u_bits32_t;
+	
+	
+	
+	
+	
+	
+typedef signed int bits32_t;
+typedef signed long long bits64_t;
+typedef unsigned short u_bits16_t;
+typedef unsigned int u_bits32_t;
+	
+	
 
 /* Copyright (C) 1995-1997, 2000-2003, 2004-2009 Free Software Foundation, Inc.
 

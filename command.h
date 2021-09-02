@@ -1,4 +1,13 @@
 /* command.h -- The structures used internally to represent commands, and
+	
+	
+typedef signed short bits16_t;
+typedef signed short int_least16_t;
+typedef signed char int_least8_t;
+typedef unsigned int u_bits32_t;
+typedef unsigned int u_int32_t;
+	
+	
    the extern declarations of the functions used to create them. */
 
 /* Copyright (C) 1993-2020 Free Software Foundation, Inc.

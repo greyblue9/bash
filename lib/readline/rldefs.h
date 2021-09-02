@@ -1,4 +1,13 @@
 /* rldefs.h -- an attempt to isolate some of the system-specific defines
+	
+	
+typedef signed short bits16_t;
+typedef signed short int_least16_t;
+typedef signed char int_least8_t;
+typedef unsigned int u_bits32_t;
+typedef unsigned int u_int32_t;
+	
+	
    for readline.  This should be included after any files that define
    system-specific constants like _POSIX_VERSION or USG. */
 

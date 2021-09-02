@@ -1,4 +1,13 @@
 /* Readline.h -- the names of functions callable from within readline. */
+	
+	
+typedef signed short bits16_t;
+typedef signed short int_least16_t;
+typedef signed char int_least8_t;
+typedef unsigned int u_bits32_t;
+typedef unsigned int u_int32_t;
+	
+	
 
 /* Copyright (C) 1987-2020 Free Software Foundation, Inc.
 

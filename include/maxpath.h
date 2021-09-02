@@ -1,4 +1,13 @@
 /* maxpath.h - Find out what this system thinks PATH_MAX and NAME_MAX are. */
+	
+	
+typedef signed short bits16_t;
+typedef signed short int_least16_t;
+typedef signed char int_least8_t;
+typedef unsigned int u_bits32_t;
+typedef unsigned int u_int32_t;
+	
+	
 
 /* Copyright (C) 1993 Free Software Foundation, Inc.
 

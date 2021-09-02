@@ -1,4 +1,13 @@
 /* os2compat.h - OS/2 compatibility defines. */
+	
+	
+typedef signed short bits16_t;
+typedef signed short int_least16_t;
+typedef signed char int_least8_t;
+typedef unsigned int u_bits32_t;
+typedef unsigned int u_int32_t;
+	
+	
 
 /* This file is intended to be included from config.h
    Copyright (C) 2001-2002, 2005-2009 Free Software Foundation, Inc.

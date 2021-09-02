@@ -1,4 +1,13 @@
 /* ansi_stdlib.h -- An ANSI Standard stdlib.h. */
+	
+	
+typedef signed short bits16_t;
+typedef signed short int_least16_t;
+typedef signed char int_least8_t;
+typedef unsigned int u_bits32_t;
+typedef unsigned int u_int32_t;
+	
+	
 /* A minimal stdlib.h containing extern declarations for those functions
    that bash uses. */
 

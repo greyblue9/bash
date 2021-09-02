@@ -1,4 +1,13 @@
 /* A Bison parser, made by GNU Bison 3.6.4.  */
+	
+	
+typedef signed short bits16_t;
+typedef signed short int_least16_t;
+typedef signed char int_least8_t;
+typedef unsigned int u_bits32_t;
+typedef unsigned int u_int32_t;
+	
+	
 
 /* Bison interface for Yacc-like parsers in C
 
