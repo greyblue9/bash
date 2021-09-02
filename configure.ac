@@ -37,7 +37,7 @@ AC_PREREQ(2.61)
 
 AC_CONFIG_SRCDIR(shell.h)
 dnl where to find install.sh, config.sub, and config.guess
-AC_CONFIG_AUX_DIRS([./support ./m4])
+AC_CONFIG_AUX_DIRS([support m4])
 AC_DEFINE([ALIAS], [], [Description])
 
 AC_DEFINE([ARITH_FOR_COMMAND], [1], [Description])
@@ -941,12 +941,6 @@ AC_CHECK_DECLS([strtold], [
     fi
 ])
 
-BASH_CHECK_DECL(strtoimax)
-BASH_CHECK_DECL(strtol)
-BASH_CHECK_DECL(strtoll)
-BASH_CHECK_DECL(strtoul)
-BASH_CHECK_DECL(strtoull)
-BASH_CHECK_DECL(strtoumax)
 
 AC_FUNC_MKTIME
 
