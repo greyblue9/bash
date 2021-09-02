@@ -21,49 +21,26 @@ PACKAGE = @PACKAGE_NAME@
 VERSION = @PACKAGE_VERSION@
 
 # Include some boilerplate Gnu makefile definitions.
-prefix = @prefix@
 
-exec_prefix = @exec_prefix@
-bindir = @bindir@
-libdir = @libdir@
-infodir = @infodir@
-includedir = @includedir@
 
-datarootdir = @datarootdir@
 
-loadablesdir = @loadablesdir@
-headersdir = @headersdir@
 
 topdir = @top_srcdir@
-BUILD_DIR = @BUILD_DIR@
-srcdir = @srcdir@
 VPATH = @srcdir@
 
 # Support an alternate destination root directory for package building
 DESTDIR =
 
-INSTALL = @INSTALL@
-INSTALL_PROGRAM = @INSTALL_PROGRAM@
-INSTALL_SCRIPT = @INSTALL_SCRIPT@
-INSTALL_DATA = @INSTALL_DATA@
+	
 INSTALLMODE= -m 0755
 
 @SET_MAKE@
-CC = @CC@
 RM = rm -f
 
 SHELL = @MAKE_SHELL@
 
-host_os = @host_os@
-host_cpu = @host_cpu@
-host_vendor = @host_vendor@
 
-CFLAGS = @CFLAGS@
-LOCAL_CFLAGS = @LOCAL_CFLAGS@
-DEFS = @DEFS@
-LOCAL_DEFS = @LOCAL_DEFS@
 
-CPPFLAGS = @CPPFLAGS@
 
 BASHINCDIR = ${topdir}/include
 
@@ -73,8 +50,6 @@ LIBBUILD = ${BUILD_DIR}/lib
 
 INTL_LIBSRC = ${topdir}/lib/intl
 INTL_BUILDDIR = ${LIBBUILD}/intl
-INTL_INC = @INTL_INC@
-LIBINTL_H = @LIBINTL_H@
 
 CCFLAGS = $(DEFS) $(LOCAL_DEFS) $(LOCAL_CFLAGS) $(CPPFLAGS) $(CFLAGS)
 
@@ -84,13 +59,6 @@ CCFLAGS = $(DEFS) $(LOCAL_DEFS) $(LOCAL_CFLAGS) $(CPPFLAGS) $(CFLAGS)
 # dynamic loading of shared objects, please update the script and send the
 # changes to bash-maintainers@gnu.org.
 #
-SHOBJ_CC = @SHOBJ_CC@
-SHOBJ_CFLAGS = @SHOBJ_CFLAGS@
-SHOBJ_LD = @SHOBJ_LD@
-SHOBJ_LDFLAGS = @SHOBJ_LDFLAGS@ @LDFLAGS@
-SHOBJ_XLDFLAGS = @SHOBJ_XLDFLAGS@
-SHOBJ_LIBS = @SHOBJ_LIBS@
-SHOBJ_STATUS = @SHOBJ_STATUS@
 
 INC = -I. -I.. -I$(topdir) -I$(topdir)/lib -I$(topdir)/builtins -I${srcdir} \
       -I$(BASHINCDIR) -I$(BUILD_DIR) -I$(LIBBUILD) \

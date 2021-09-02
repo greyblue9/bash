@@ -22,26 +22,13 @@
 PACKAGE = @PACKAGE_NAME@
 VERSION = @PACKAGE_VERSION@
 
-PACKAGE_BUGREPORT = @PACKAGE_BUGREPORT@
-PACKAGE_NAME = @PACKAGE_NAME@
-PACKAGE_STRING = @PACKAGE_STRING@
-PACKAGE_VERSION = @PACKAGE_VERSION@
 
-srcdir = @srcdir@
 VPATH = @srcdir@
 topdir = @top_srcdir@
-BUILD_DIR = @BUILD_DIR@
 
-datarootdir = @datarootdir@
 
-INSTALL = @INSTALL@
-INSTALL_PROGRAM = @INSTALL_PROGRAM@
-INSTALL_DATA = @INSTALL_DATA@
+	
 
-CC = @CC@
-RANLIB = @RANLIB@
-AR = @AR@
-ARFLAGS = @ARFLAGS@
 RM = rm -f
 CP = cp
 MV = mv
@@ -52,15 +39,8 @@ SHELL = @MAKE_SHELL@
 ETAGS = etags -tw
 CTAGS = ctags -tw
 
-DEBUG = @DEBUG@
 
-CFLAGS = @CFLAGS@
-LOCAL_CFLAGS = @LOCAL_CFLAGS@ ${DEBUG}
-CPPFLAGS = @CPPFLAGS@
-LDFLAGS = @LDFLAGS@
 
-DEFS = @DEFS@
-LOCAL_DEFS = @LOCAL_DEFS@
 
 INCLUDES = -I. -I$(BUILD_DIR) -I$(topdir) -I$(topdir)/lib
 
@@ -117,7 +97,7 @@ SOURCES  = $(CSOURCES) $(HSOURCES) $(DOCSOURCE)
 
 THINGS_TO_TAR = $(SOURCES) $(SUPPORT)
 
-INSTALLED_HEADERS = readline.h chardefs.h keymaps.h history.h tilde.h \
+	
 		    rlstdc.h rlconf.h rltypedefs.h
 
 ##########################################################################

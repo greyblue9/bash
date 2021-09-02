@@ -16,78 +16,40 @@
 #   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 PACKAGE = @PACKAGE_NAME@
-PACKAGE_BUGREPORT = @PACKAGE_BUGREPORT@
-PACKAGE_NAME = @PACKAGE_NAME@
-PACKAGE_STRING = @PACKAGE_STRING@
-PACKAGE_VERSION = @PACKAGE_VERSION@
 
 #
 SHELL = @MAKE_SHELL@
-RANLIB = @RANLIB@
-CC = @CC@
-CC_FOR_BUILD = @CC_FOR_BUILD@
-AR = @AR@
-ARFLAGS = @ARFLAGS@
 RM = rm -f
 CP = cp
 
-EXEEXT = @EXEEXT@
 
-prefix = @prefix@
 
-srcdir = @srcdir@
 VPATH = @srcdir@
 topdir = @top_srcdir@
 
-datarootdir = @datarootdir@
 
-includedir = @includedir@
-datadir = @datadir@
-localedir = @localedir@
 
-loadablesdir = @loadablesdir@
 
 # Support an alternate destination root directory for package building
 DESTDIR =
 
-INSTALL = @INSTALL@
-INSTALL_DATA = @INSTALL_DATA@
-BUILD_DIR = @BUILD_DIR@
+	
 
 LIBBUILD = ${BUILD_DIR}/lib
 
-PROFILE_FLAGS = @PROFILE_FLAGS@
-CFLAGS = @CFLAGS@
-CFLAGS_FOR_BUILD = @CFLAGS_FOR_BUILD@ @CROSS_COMPILE@
-CPPFLAGS = @CPPFLAGS@
-CPPFLAGS_FOR_BUILD = @CPPFLAGS_FOR_BUILD@
-LOCAL_CFLAGS = @LOCAL_CFLAGS@ ${DEBUG}
-DEFS = @DEFS@
-LOCAL_DEFS = @LOCAL_DEFS@
 
-LIBS = @LIBS@
-LDFLAGS = @LDFLAGS@ $(LOCAL_LDFLAGS) $(CFLAGS)
-LDFLAGS_FOR_BUILD = @LDFLAGS_FOR_BUILD@ $(LOCAL_LDFLAGS) $(CFLAGS_FOR_BUILD)
-LOCAL_LDFLAGS = @LOCAL_LDFLAGS@
-LIBS_FOR_BUILD = @LIBS_FOR_BUILD@
 #LIBS_FOR_BUILD = $(LIBS)
 
 BASHINCDIR = ${topdir}/include
 
-RL_INCLUDEDIR = @RL_INCLUDEDIR@
 
 INTL_LIBSRC = ${topdir}/lib/intl
 INTL_BUILDDIR = ${LIBBUILD}/intl
 INTL_LIBDIR = ${INTL_BUILDDIR}
 INTL_LIBRARY = ${INTL_BUILDDIR}/libintl.a
-INTL_INC = @INTL_INC@
-INTL_DEP = @INTL_DEP@
-LIBINTL_H = @LIBINTL_H@
 
-HELPDIR = @HELPDIR@
 MKDIRS = ${topdir}/support/mkdirs
 
-HELPFILES_TARGET = @HELPFILES_TARGET@
 
 INCLUDES = -I. -I.. @RL_INCLUDE@ -I$(topdir) -I$(BASHINCDIR) -I$(topdir)/lib -I$(srcdir) ${INTL_INC}
 
@@ -104,14 +66,12 @@ GCC_LINT_FLAGS = -Wall -Wshadow -Wpointer-arith -Wcast-qual \
 
 MKBUILTINS = mkbuiltins$(EXEEXT)
 DIRECTDEFINE = -D $(srcdir)
-HELPDIRDEFINE = @HELPDIRDEFINE@
-HELPSTRINGS = @HELPSTRINGS@
 
 # xxx this is bad style
 RL_LIBSRC = $(topdir)/lib/readline
 
-.SUFFIXES:
-.SUFFIXES: .def .c .o
+	
+	
 # How to make a .o file from a .def file.
 .def.o:
 	$(RM) $@

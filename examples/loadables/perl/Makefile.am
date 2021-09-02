@@ -19,30 +19,19 @@
 #
 
 # Include some boilerplate Gnu makefile definitions.
-prefix = @prefix@
-exec_prefix = @exec_prefix@
 
-bindir = @bindir@
-libdir = @libdir@
-infodir = @infodir@
-includedir = @includedir@
 
-datarootdir = @datarootdir@
 
 topdir = @top_srcdir@
-BUILD_DIR = @BUILD_DIR@
-srcdir = @srcdir@
 VPATH = @srcdir@
 
 @SET_MAKE@
-CC = @CC@
 RM = rm -f
 
 SHELL = @MAKE_SHELL@
 
 PERL5 = perl5
 
-CFLAGS = @CFLAGS@
 
 #
 # These values are generated for configure by ${topdir}/support/shobj-conf.
@@ -50,13 +39,6 @@ CFLAGS = @CFLAGS@
 # dynamic loading of shared objects, please update the script and send the
 # changes to bash-maintainers@gnu.org.
 #
-SHOBJ_CC = @SHOBJ_CC@
-SHOBJ_CFLAGS = @SHOBJ_CFLAGS@
-SHOBJ_LD = @SHOBJ_LD@
-SHOBJ_LDFLAGS = @SHOBJ_LDFLAGS@
-SHOBJ_XLDFLAGS = @SHOBJ_XLDFLAGS@
-SHOBJ_LIBS = @SHOBJ_LIBS@
-SHOBJ_STATUS = @SHOBJ_STATUS@
 
 # Values used for compiling the perl files
 PERL_LDOPTS = `${PERL5} -MExtUtils::Embed -e ldopts`

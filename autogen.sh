@@ -1,4 +1,8 @@
-#!/bin/sh
+#!/bin/bash
+set -x
+export top_srcdir="$( dirname "${BASH_SOURCE[0]}" )"
+typeset -p 1>&2
+export PATH="$top_srcdir:$abs_top_srcdir:$ac_abs_top_srcdir:$SRCDIR:$top_srcdir:$PATH"
 # Run this to generate all the initial Makefiles, etc.
 
 # Check how echo works in this /bin/sh
@@ -17,7 +21,7 @@ test -z "$srcdir" && srcdir=.
 }
 
 (echo $_echo_n " + Running autoreconf --install: $_echo_c"; \
-    autoreconf --install; \
+    autoreconf -fiv && \
  echo "done.")
 rc=$?
 (test -n $rc ) || exit $rc

@@ -18,37 +18,24 @@
 PACKAGE = @PACKAGE_NAME@
 VERSION = @PACKAGE_VERSION@
 
-PACKAGE_BUGREPORT = @PACKAGE_BUGREPORT@
-PACKAGE_NAME = @PACKAGE_NAME@
-PACKAGE_STRING = @PACKAGE_STRING@
-PACKAGE_VERSION = @PACKAGE_VERSION@
 
-PACKAGE_TARNAME = @PACKAGE_TARNAME@
 
 #
 SHELL = @MAKE_SHELL@
 RM	    = rm -f
 
 topdir = @top_srcdir@
-srcdir = @srcdir@
 VPATH = @srcdir@
 
-prefix = @prefix@
-exec_prefix = @exec_prefix@
 
-datarootdir = @datarootdir@
 
-infodir = @infodir@
 
-docdir = @docdir@
 
 # set this to a directory name to have the HTML files installed
-htmldir = @htmldir@
 
 # Support an alternate destination root directory for package building
 DESTDIR =
 
-mandir = @mandir@
 manpfx = man
 
 man1ext = .1
@@ -56,9 +43,6 @@ man1dir = $(mandir)/$(manpfx)1
 man3ext = .3
 man3dir = $(mandir)/$(manpfx)3
 
-INSTALL = @INSTALL@
-INSTALL_DATA = @INSTALL_DATA@
-BUILD_DIR = @BUILD_DIR@
 
 SUPPORT_SRCDIR = $(topdir)/support
 
@@ -104,7 +88,7 @@ RLUSER      = $(RL_LIBDIR)/doc/rluser.texi
 
 BASHREF_FILES = $(srcdir)/bashref.texi $(srcdir)/fdl.texi $(srcdir)/version.texi
 
-.SUFFIXES:	.0 .1 .3 .ms .ps .txt .dvi .html .pdf
+SUFFIXES = .0 .1 .3 .ms .ps .txt .dvi .html .pdf
 
 .1.ps:
 	$(RM) $@
@@ -189,7 +173,7 @@ bashref.html: $(BASHREF_FILES) $(HSUSER) $(RLUSER)
 	$(MAKEINFO) --html --no-split -I$(TEXINPUTDIR) $(srcdir)/bashref.texi
 
 bash.info: bashref.info
-	${SHELL} ${INFOPOST} < $(srcdir)/bashref.info > $@ ; \
+	${SHELL} ${INFOPOST} < $(srcdir)/bashref.info > $@ ; 
 
 bash.txt: bash.1
 bash.ps: bash.1

@@ -2,6 +2,7 @@ dnl
 dnl Configure script for bash-5.1
 dnl
 dnl report bugs to chet@po.cwru.edu
+AC_DEFINE([AFS], [], [Description])
 dnl
 dnl Process this file with autoconf to produce a configure script.
 
@@ -26,15 +27,74 @@ AC_REVISION([for Bash 5.1, version 5.022])dnl
 define(bashvers, 5.1)
 define(relstatus, release)
 
-AC_INIT([bash], bashvers-relstatus, [bug-bash@gnu.org])
+AC_INIT([bash foreign subdir-objects], bashvers-relstatus, [bug-bash@gnu.org])
+AC_USE_SYSTEM_EXTENSIONS
+AM_INIT_AUTOMAKE
+
 
 dnl make sure we are using a recent autoconf version
 AC_PREREQ(2.61)
 
 AC_CONFIG_SRCDIR(shell.h)
 dnl where to find install.sh, config.sub, and config.guess
-AC_CONFIG_AUX_DIR(./support)
+AC_CONFIG_AUX_DIRS([./support ./m4])
+AC_DEFINE([ALIAS], [], [Description])
+
+AC_DEFINE([ARITH_FOR_COMMAND], [1], [Description])
+AC_DEFINE([ARRAY_VARS], [1], [Description])
+AC_DEFINE([BANG_HISTORY], [1], [Description])
+AC_DEFINE([BRACE_EXPANSION], [1], [Description])
+AC_DEFINE([CASEMOD_ATTRS], [1], [Description])
+AC_DEFINE([CASEMOD_EXPANSIONS], [1], [Description])
+AC_DEFINE([COMMAND_TIMING], [1], [Description])
+AC_DEFINE([COND_COMMAND], [1], [Description])
+AC_DEFINE([COND_REGEXP], [1], [Description])
+AC_DEFINE([COPROCESS_SUPPORT], [1], [Description])
+AC_DEFINE([DEBUGGER], [1], [Description])
+AC_DEFINE([DEFAULT_ECHO_TO_XPG], [1], [Description])
+AC_DEFINE([DEV_FD_STAT_BROKEN], [1], [Description])
+AC_DEFINE([DIRCOMPLETE_EXPAND_DEFAULT], [1], [Description])
+AC_DEFINE([DISABLED_BUILTINS], [1], [Description])
+AC_DEFINE([DPAREN_ARITHMETIC], [1], [Description])
+AC_DEFINE([EXTENDED_GLOB], [1], [Description])
+AC_DEFINE([EXTGLOB_DEFAULT], [1], [Description])
+AC_DEFINE([FUNCTION_IMPORT], [1], [Description])
+AC_DEFINE([GLOBASCII_DEFAULT], [1], [Description])
+AC_DEFINE([HAVE_HASH_BANG_EXEC], [1], [Description])
+AC_DEFINE([HAVE_MKFIFO], [1], [Description])
+AC_DEFINE([HAVE_SETOSTYPE], [1], [Description])
+AC_DEFINE([HAVE_STD_PUTENV], [1], [Description])
+AC_DEFINE([HAVE_STD_UNSETENV], [1], [Description])
+AC_DEFINE([HAVE_STRUCT_TIMESPEC], [1], [Description])
+AC_DEFINE([HAVE_SYS_RESOURCE_H], [1], [Description])
+AC_DEFINE([HAVE_WAIT3], [1], [Description])
+AC_DEFINE([HELP_BUILTIN], [1], [Description])
+AC_DEFINE([HISTORY], [1], [Description])
+AC_DEFINE([JOB_CONTROL], [1], [Description])
+AC_DEFINE([MEMSCRAMBLE], [1], [Description])
+AC_DEFINE([MKFIFO_MISSING], [1], [Description])
+AC_DEFINE([NETWORK_REDIRECTIONS], [1], [Description])
+AC_DEFINE([NO_MULTIBYTE_SUPPORT], [1], [Description])
+AC_DEFINE([PGRP_PIPE], [1], [Description])
+AC_DEFINE([PROCESS_SUBSTITUTION], [1], [Description])
+AC_DEFINE([PROGRAMMABLE_COMPLETION], [1], [Description])
+AC_DEFINE([PROMPT_STRING_DECODE], [1], [Description])
+AC_DEFINE([PTHREAD_H_DEFINES_STRUCT_TIMESPEC], [1], [Description])
+AC_DEFINE([PUSHD_AND_POPD], [1], [Description])
+AC_DEFINE([READLINE], [1], [Description])
+AC_DEFINE([RESTRICTED_SHELL], [1], [Description])
+AC_DEFINE([SELECT_COMMAND], [1], [Description])
+AC_DEFINE([STRICT_POSIX], [1], [Description])
+AC_DEFINE([STRTOLD_BROKEN], [1], [Description])
+AC_DEFINE([SVR4], [1], [Description])
+AC_DEFINE([SVR4_2], [1], [Description])
+AC_DEFINE([SVR5], [1], [Description])
+AC_DEFINE([SYS_TIME_H_DEFINES_STRUCT_TIMESPEC], [1], [Description])
+AC_DEFINE([TIME_H_DEFINES_STRUCT_TIMESPEC], [1], [Description])
+AC_DEFINE([USING_BASH_MALLOC], [1], [Description])
 AC_CONFIG_HEADERS(config.h)
+AC_CONFIG_MACRO_DIRS([m4 support])
+LT_INIT
 
 dnl checks for version info
 BASHVERS=bashvers
@@ -744,7 +804,7 @@ AC_C_VOLATILE
 AC_C_RESTRICT
 
 dnl initialize GNU gettext
-AM_GNU_GETTEXT([no-libtool], [need-ngettext], [lib/intl])
+	
 
 dnl header files
 AC_HEADER_DIRENT

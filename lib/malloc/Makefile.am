@@ -15,34 +15,19 @@
 #   You should have received a copy of the GNU General Public License
 #   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-srcdir = @srcdir@
 VPATH = @srcdir@
 topdir = @top_srcdir@
-BUILD_DIR = @BUILD_DIR@
 
-INSTALL = @INSTALL@
-INSTALL_PROGRAM = @INSTALL_PROGRAM@
-INSTALL_DATA = @INSTALL_DATA@
+	
 
-CC = @CC@
-RANLIB = @RANLIB@
-AR = @AR@
-ARFLAGS = @ARFLAGS@
 RM = rm -f
 CP = cp
 MV = mv
 
 SHELL = @MAKE_SHELL@
 
-PROFILE_FLAGS = @PROFILE_FLAGS@
 
-CFLAGS = @CFLAGS@
-LOCAL_CFLAGS = @LOCAL_CFLAGS@
-CPPFLAGS = @CPPFLAGS@
-LDFLAGS = @LDFLAGS@
 
-DEFS = @DEFS@
-LOCAL_DEFS = @LOCAL_DEFS@
 
 LIBBUILD = ${BUILD_DIR}/lib
 
@@ -50,8 +35,6 @@ BASHINCDIR = ${topdir}/include
 
 INTL_LIBSRC = ${topdir}/lib/intl
 INTL_BUILDDIR = ${LIBBUILD}/intl
-INTL_INC = @INTL_INC@
-LIBINTL_H = @LIBINTL_H@
 
 INCLUDES = -I. -I../.. -I$(topdir) -I$(BASHINCDIR) -I$(topdir)/lib $(INTL_INC)
 
@@ -70,9 +53,6 @@ STUB_SOURCE = stub.c
 ALLOCA_SOURCE = alloca.c
 ALLOCA_OBJECT = alloca.o
 
-MALLOC_SRC = @MALLOC_SRC@
-MALLOC = @MALLOC@
-ALLOCA = @ALLOCA@
 
 MALLOC_OBJS = malloc.o $(ALLOCA) trace.o stats.o table.o watch.o
 STUB_OBJS = $(ALLOCA) stub.o

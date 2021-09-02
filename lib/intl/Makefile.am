@@ -20,21 +20,12 @@ VERSION = @PACKAGE_VERSION@
 
 SHELL = /bin/sh
 
-srcdir = @srcdir@
-top_srcdir = @top_srcdir@
 top_builddir = @BUILD_DIR@
 VPATH = $(srcdir)
 
-prefix = @prefix@
-exec_prefix = @exec_prefix@
 transform = @program_transform_name@
 
-datarootdir = @datarootdir@
 
-libdir = @libdir@
-includedir = @includedir@
-datadir = @datadir@
-localedir = @localedir@
 
 gettextsrcdir = $(datadir)/gettext/intl
 aliaspath = $(localedir)
@@ -42,23 +33,15 @@ subdir = intl
 
 @SET_MAKE@
 
-INSTALL = @INSTALL@
-INSTALL_DATA = @INSTALL_DATA@
-MKINSTALLDIRS = @MKINSTALLDIRS@
+	
 mkinstalldirs = $(SHELL) $(MKINSTALLDIRS)
 
 l = @INTL_LIBTOOL_SUFFIX_PREFIX@
 
-AR = @AR@
-CC = @CC@
-LIBTOOL = @LIBTOOL@
-RANLIB = @RANLIB@
 YACC = @INTLBISON@ -y -d
 YFLAGS = --name-prefix=__gettext
 
-ARFLAGS = @ARFLAGS@
 
-LOCAL_DEFS = @LOCAL_DEFS@
 
 DEFS = -DLOCALEDIR=\"$(localedir)\" -DLOCALE_ALIAS_PATH=\"$(aliaspath)\" \
 -DLIBDIR=\"$(prefix)/libdata\" -DIN_LIBINTL \
@@ -66,14 +49,10 @@ DEFS = -DLOCALEDIR=\"$(localedir)\" -DLOCALE_ALIAS_PATH=\"$(aliaspath)\" \
 -Dset_relocation_prefix=libintl_set_relocation_prefix \
 -Drelocate=libintl_relocate \
 -DDEPENDS_ON_LIBICONV=1 @DEFS@ ${LOCAL_DEFS}
-CPPFLAGS = @CPPFLAGS@
-CFLAGS = @CFLAGS@
-LDFLAGS = @LDFLAGS@
-LIBS = @LIBS@
 
 COMPILE = $(CC) -c $(DEFS) $(INCLUDES) $(CPPFLAGS) $(CFLAGS) $(XCFLAGS)
 
-HEADERS = \
+	
   gmo.h \
   gettextP.h \
   hash-string.h \
@@ -168,8 +147,8 @@ LTV_CURRENT=5
 LTV_REVISION=0
 LTV_AGE=3
 
-.SUFFIXES:
-.SUFFIXES: .c .y .o .lo .sin .sed
+	
+SUFFIXES = .c .y .o .lo .sin .sed
 
 .c.o:
 	$(COMPILE) $<

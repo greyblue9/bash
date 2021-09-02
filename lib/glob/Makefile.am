@@ -19,34 +19,19 @@
 #   You should have received a copy of the GNU General Public License
 #   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-srcdir = @srcdir@
 VPATH = @srcdir@
 topdir = @top_srcdir@
-BUILD_DIR = @BUILD_DIR@
 
-INSTALL = @INSTALL@
-INSTALL_PROGRAM = @INSTALL_PROGRAM@
-INSTALL_DATA = @INSTALL_DATA@
+	
 
-CC = @CC@
-RANLIB = @RANLIB@
-AR = @AR@
-ARFLAGS = @ARFLAGS@
 RM = rm -f
 CP = cp
 MV = mv
 
 SHELL = @MAKE_SHELL@
 
-PROFILE_FLAGS = @PROFILE_FLAGS@
 
-CFLAGS = @CFLAGS@
-LOCAL_CFLAGS = @LOCAL_CFLAGS@
-CPPFLAGS = @CPPFLAGS@
-LDFLAGS = @LDFLAGS@ @LOCAL_LDFLAGS@
 
-DEFS = @DEFS@
-LOCAL_DEFS = @LOCAL_DEFS@
 
 BASHINCDIR = ${topdir}/include
 

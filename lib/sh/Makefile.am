@@ -20,15 +20,9 @@
 PACKAGE = @PACKAGE_NAME@
 VERSION = @PACKAGE_VERSION@
 
-PACKAGE_BUGREPORT = @PACKAGE_BUGREPORT@
-PACKAGE_NAME = @PACKAGE_NAME@
-PACKAGE_STRING = @PACKAGE_STRING@
-PACKAGE_VERSION = @PACKAGE_VERSION@
 
-srcdir = @srcdir@
 VPATH = @srcdir@
 topdir = @top_srcdir@
-BUILD_DIR = @BUILD_DIR@
 
 LIBBUILD = ${BUILD_DIR}/lib
 
@@ -36,34 +30,18 @@ BASHINCDIR = ${topdir}/include
 
 INTL_LIBSRC = ${topdir}/lib/intl
 INTL_BUILDDIR = ${LIBBUILD}/intl
-INTL_INC = @INTL_INC@
-LIBINTL_H = @LIBINTL_H@
 
-datarootdir = @datarootdir@
 
-INSTALL = @INSTALL@
-INSTALL_PROGRAM = @INSTALL_PROGRAM@
-INSTALL_DATA = @INSTALL_DATA@
+	
 
-CC = @CC@
-RANLIB = @RANLIB@
-AR = @AR@
-ARFLAGS = @ARFLAGS@
 RM = rm -f
 CP = cp
 MV = mv
 
 SHELL = @MAKE_SHELL@
 
-CFLAGS = @CFLAGS@
-LOCAL_CFLAGS = @LOCAL_CFLAGS@ ${DEBUG}
-CPPFLAGS = @CPPFLAGS@
-LDFLAGS = @LDFLAGS@ @LOCAL_LDFLAGS@
 
-PROFILE_FLAGS = @PROFILE_FLAGS@
 
-DEFS = @DEFS@
-LOCAL_DEFS = @LOCAL_DEFS@
 
 INCLUDES = -I. -I../.. -I$(topdir) -I$(topdir)/lib -I$(BASHINCDIR) -I$(srcdir) $(INTL_INC)
 
@@ -99,7 +77,6 @@ CSOURCES = clktck.c clock.c getcwd.c getenv.c oslib.c setlinebuf.c \
 HSOURCES = 
 
 # The object files contained in $(LIBRARY_NAME)
-LIBOBJS = @LIBOBJS@
 OBJECTS = clktck.o clock.o getenv.o oslib.o setlinebuf.o strnlen.o \
 	  itos.o zread.o zwrite.o shtty.o shmatch.o eaccess.o \
 	  netconn.o netopen.o timeval.o makepath.o pathcanon.o \

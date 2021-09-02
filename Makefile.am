@@ -1,4 +1,5 @@
 # Makefile for bash-5.0, version 4.30
+	
 #
 # Copyright (C) 1996-2018 Free Software Foundation, Inc.
 
@@ -21,34 +22,16 @@ all: .made
 PACKAGE = @PACKAGE_NAME@
 VERSION = @PACKAGE_VERSION@
 
-PACKAGE_BUGREPORT = @PACKAGE_BUGREPORT@
-PACKAGE_NAME = @PACKAGE_NAME@
-PACKAGE_STRING = @PACKAGE_STRING@
-PACKAGE_VERSION = @PACKAGE_VERSION@
 
-PACKAGE_TARNAME = @PACKAGE_TARNAME@
 
 # Include some boilerplate Gnu makefile definitions.
-prefix = @prefix@
 
-exec_prefix = @exec_prefix@
 
-datarootdir = @datarootdir@
 
-bindir = @bindir@
-libdir = @libdir@
-infodir = @infodir@
-includedir = @includedir@
-datadir = @datadir@
-localedir = @localedir@
 pkgconfigdir = ${libdir}/pkgconfig
 
-loadablesdir = @loadablesdir@
-headersdir = @headersdir@
 
-docdir = @docdir@
 
-mandir = @mandir@
 manpfx = man
 
 man1ext = .1
@@ -56,40 +39,25 @@ man1dir = $(mandir)/$(manpfx)1
 man3ext = .3
 man3dir = $(mandir)/$(manpfx)3
 
-htmldir = @htmldir@
 
 # Support an alternate destination root directory for package building
 DESTDIR =
 
 topdir = @top_srcdir@
-BUILD_DIR = @BUILD_DIR@
 top_builddir = @BUILD_DIR@
-srcdir = @srcdir@
 VPATH = @srcdir@
 
 @SET_MAKE@
-CC = @CC@
-CC_FOR_BUILD = @CC_FOR_BUILD@
-YACC = @YACC@
 SHELL = @MAKE_SHELL@
 CP = cp
 RM = rm -f
-AR = @AR@
-ARFLAGS = @ARFLAGS@
-RANLIB = @RANLIB@
-SIZE = @SIZE@
 STRIP = strip
 
-INSTALL = @INSTALL@
-INSTALL_PROGRAM = @INSTALL_PROGRAM@
-INSTALL_SCRIPT = @INSTALL_SCRIPT@
-INSTALL_DATA = @INSTALL_DATA@
+	
 INSTALLMODE= -m 0755
 INSTALLMODE2 = -m 0555
 
-TESTSCRIPT = @TESTSCRIPT@
 
-DEBUGGER_START_FILE = @DEBUGGER_START_FILE@
 
 #If you have purify, and want to use it, run the make as `make PURIFY=purify'
 #PURIFY = @PURIFY@
@@ -100,8 +68,6 @@ DEBUGGER_START_FILE = @DEBUGGER_START_FILE@
 	$(RM) $@
 	$(CC) $(CCFLAGS) -c $<
 
-EXEEXT = @EXEEXT@
-OBJEXT = @OBJEXT@
 
 # The name of this program and some version information.
 VERSPROG = bashversion$(EXEEXT)
@@ -110,7 +76,6 @@ VERSOBJ = bashversion.$(OBJEXT)
 Program = bash$(EXEEXT)
 Version = @BASHVERS@
 PatchLevel = `$(BUILD_DIR)/$(VERSPROG) -p`
-RELSTATUS = @RELSTATUS@
 
 Machine = @host_cpu@
 OS = @host_os@
@@ -118,8 +83,6 @@ VENDOR = @host_vendor@
 MACHTYPE = @host@
 
 # comment out for release
-DEBUG = @DEBUG@
-MALLOC_DEBUG = @MALLOC_DEBUG@
 
 THIS_SH = $(BUILD_DIR)/$(Program)
 
@@ -127,22 +90,12 @@ THIS_SH = $(BUILD_DIR)/$(Program)
 # with gprof, or nothing (the default).
 PROFILE_FLAGS= @PROFILE_FLAGS@
 
-CFLAGS = @CFLAGS@
-CFLAGS_FOR_BUILD = @CFLAGS_FOR_BUILD@ @CROSS_COMPILE@
-CPPFLAGS = @CPPFLAGS@
-CPPFLAGS_FOR_BUILD = @CPPFLAGS_FOR_BUILD@
-LOCAL_CFLAGS = @LOCAL_CFLAGS@ ${DEBUG} ${MALLOC_DEBUG}
-DEFS = @DEFS@
-LOCAL_DEFS = @LOCAL_DEFS@
 
 LOCALE_DEFS = -DLOCALEDIR='"$(localedir)"' -DPACKAGE='"$(PACKAGE)"'
 
-LOCAL_LIBS = @LOCAL_LIBS@
 LIBS = $(BUILTINS_LIB) $(LIBRARIES) @LIBS@
 LIBS_FOR_BUILD = 
 
-STATIC_LD = @STATIC_LD@
-LOCAL_LDFLAGS = @LOCAL_LDFLAGS@
 
 SYSTEM_FLAGS = -DPROGRAM='"$(Program)"' -DCONF_HOSTTYPE='"$(Machine)"' -DCONF_OSTYPE='"$(OS)"' -DCONF_MACHTYPE='"$(MACHTYPE)"' -DCONF_VENDOR='"$(VENDOR)"' $(LOCALE_DEFS)
 
@@ -155,7 +108,6 @@ CCFLAGS_FOR_BUILD = $(BASE_CCFLAGS) $(CPPFLAGS_FOR_BUILD) $(CFLAGS_FOR_BUILD)
 
 BASE_LDFLAGS = @LDFLAGS@ $(LOCAL_LDFLAGS) $(CFLAGS)
 LDFLAGS = ${ADDON_LDFLAGS} ${BASE_LDFLAGS} ${PROFILE_FLAGS} ${STATIC_LD}
-LDFLAGS_FOR_BUILD = @LDFLAGS_FOR_BUILD@ $(LOCAL_LDFLAGS) $(CFLAGS_FOR_BUILD)
 
 ASAN_XCFLAGS = -fsanitize=address -fno-omit-frame-pointer
 ASAN_XLDFLAGS = -fsanitize=address
@@ -187,8 +139,6 @@ LIBBUILD = ${BUILD_DIR}/${LIBSUBDIR}
 
 SUBDIR_INCLUDES = -I. @RL_INCLUDE@ -I$(topdir) -I$(topdir)/$(LIBSUBDIR)
 
-BUILD_INCLUDED_LIBINTL = @BUILD_INCLUDED_LIBINTL@
-USE_INCLUDED_LIBINTL = @USE_INCLUDED_LIBINTL@
 
 # the bash library
 # the library is a mix of functions that the C library does not provide on
@@ -243,15 +193,11 @@ SHLIB_DEP = ${SHLIB_LIBRARY}
 # we assume for now that readline source is being shipped with bash
 RL_LIBSRC = $(LIBSRC)/readline
 RL_LIBDOC = $(RL_LIBSRC)/doc
-RL_LIBDIR = @RL_LIBDIR@
 RL_ABSSRC = ${topdir}/$(RL_LIBDIR)
 
-RL_INCLUDEDIR = @RL_INCLUDEDIR@
 
-READLINE_LIB = @READLINE_LIB@
 READLINE_LIBRARY = $(RL_LIBDIR)/libreadline.a
 READLINE_LDFLAGS = -L${RL_LIBDIR}
-READLINE_DEP = @READLINE_DEP@
 
 # The source, object and documentation of the GNU Readline library.
 READLINE_SOURCE	= $(RL_LIBSRC)/rldefs.h $(RL_LIBSRC)/rlconf.h \
@@ -297,13 +243,10 @@ READLINE_OBJ	= $(RL_LIBDIR)/readline.o $(RL_LIBDIR)/funmap.o \
 		  $(RL_LIBDIR)/colors.o $(RL_LIBDIR)/parse-colors.o
 
 HIST_LIBSRC = $(LIBSRC)/readline
-HIST_LIBDIR = @HIST_LIBDIR@
 HIST_ABSSRC = ${topdir}/$(HIST_LIBDIR)
 
-HISTORY_LIB = @HISTORY_LIB@
 HISTORY_LIBRARY = $(HIST_LIBDIR)/libhistory.a
 HISTORY_LDFLAGS = -L$(HIST_LIBDIR)
-HISTORY_DEP = @HISTORY_DEP@
 
 # The source, object and documentation of the history library.
 HISTORY_SOURCE	= $(HIST_LIBSRC)/history.c $(HIST_LIBSRC)/histexpand.c \
@@ -319,10 +262,8 @@ TERM_LIBSRC = $(LIBSRC)/termcap
 TERM_LIBDIR = $(dot)/$(LIBSUBDIR)/termcap
 TERM_ABSSRC = ${topdir}/$(TERM_LIBDIR)
 
-TERMCAP_LIB = @TERMCAP_LIB@
 TERMCAP_LIBRARY = $(TERM_LIBDIR)/libtermcap.a
 TERMCAP_LDFLAGS = -L$(TERM_LIBDIR)
-TERMCAP_DEP = @TERMCAP_DEP@
 
 TERMCAP_SOURCE	= $(TERM_LIBSRC)/termcap.c $(TERM_LIBSRC)/tparam.c
 TERMCAP_OBJ	= $(TERM_LIBDIR)/termcap.o $(TERM_LIBDIR)/tparam.o
@@ -350,7 +291,6 @@ TILDE_LIBSRC = $(LIBSRC)/tilde
 TILDE_LIBDIR = $(dot)/$(LIBSUBDIR)/tilde
 TILDE_ABSSRC = ${topdir}/$(TILDE_LIBDIR)
 
-TILDE_LIB = @TILDE_LIB@
 TILDE_LIBRARY = $(TILDE_LIBDIR)/libtilde.a
 TILDE_LDFLAGS = -L$(TILDE_LIBDIR)
 TILDE_DEP = $(TILDE_LIBRARY)
@@ -366,42 +306,28 @@ INTL_BUILDDIR = ${LIBBUILD}/intl
 
 INTL_LIB     = @LIBINTL@
 INTL_LIBRARY = $(INTL_LIBDIR)/libintl.a
-INTL_DEP = @INTL_DEP@
-INTL_INC = @INTL_INC@
 
-LIBINTL_H = @LIBINTL_H@
 
 # libiconv
-LIBICONV = @LIBICONV@
 
 # tests
-LIBINTL = @LIBINTL@
-LTLIBINTL = @LTLIBINTL@
-INTLLIBS = @INTLLIBS@
-INTLOBJS = @INTLOBJS@
 
 # Our malloc.
-MALLOC_TARGET = @MALLOC_TARGET@
 
 # set to alloca.o if we are using the C alloca in lib/malloc
-ALLOCA = @ALLOCA@
 
 ALLOC_LIBSRC = $(LIBSRC)/malloc
 ALLOC_LIBDIR = $(dot)/$(LIBSUBDIR)/malloc
 ALLOC_ABSSRC = ${topdir}/$(ALLOC_LIBDIR)
 
-MALLOC_SRC = @MALLOC_SRC@
 MALLOC_OTHERSRC = ${ALLOC_LIBSRC}/trace.c ${ALLOC_LIBSRC}/stats.c \
 		  ${ALLOC_LIBSRC}/table.c ${ALLOC_LIBSRC}/watch.c
 MALLOC_SOURCE = ${ALLOC_LIBSRC}/${MALLOC_SRC} ${MALLOC_OTHERSRC}
 MALLOC_CFLAGS = -DRCHECK -Dbotch=programming_error ${MALLOC_DEBUG}
 
 MALLOC_LIB     = @MALLOC_LIB@
-MALLOC_LIBRARY = @MALLOC_LIBRARY@
-MALLOC_LDFLAGS = @MALLOC_LDFLAGS@
-MALLOC_DEP = @MALLOC_DEP@
 
-ALLOC_HEADERS = $(ALLOC_LIBSRC)/getpagesize.h $(ALLOC_LIBSRC)/shmalloc.h \
+	
 		$(ALLOC_LIBSRC)/imalloc.h $(ALLOC_LIBSRC)/mstats.h \
 		$(ALLOC_LIBSRC)/table.h $(ALLOC_LIBSRC)/watch.h
 
@@ -420,7 +346,7 @@ BASHINCFILES =	 $(BASHINCDIR)/posixstat.h $(BASHINCDIR)/ansi_stdlib.h \
 		 $(BASHINCDIR)/shtty.h $(BASHINCDIR)/typemax.h \
 		 $(BASHINCDIR)/ocache.h
 
-LIBRARIES = $(GLOB_LIB) $(SHLIB_LIB) $(READLINE_LIB) $(HISTORY_LIB) $(TERMCAP_LIB) \
+	
 	    $(TILDE_LIB) $(MALLOC_LIB) $(INTL_LIB) $(LIBICONV) $(LOCAL_LIBS)
 
 LIBDEP = $(GLOB_DEP) $(SHLIB_DEP) $(INTL_DEP) $(READLINE_DEP) $(HISTORY_DEP) $(TERMCAP_DEP) \
@@ -455,25 +381,21 @@ HSOURCES = shell.h flags.h trap.h hashcmd.h hashlib.h jobs.h builtins.h \
 SOURCES	 = $(CSOURCES) $(HSOURCES) $(BUILTIN_DEFS)
 
 # headers in top-level source directory that get installed by install-headers
-INSTALLED_HEADERS = shell.h bashjmp.h command.h syntax.h general.h error.h \
+	
 		    variables.h array.h assoc.h arrayfunc.h quit.h dispose_cmd.h \
 		    make_cmd.h subst.h sig.h externs.h builtins.h \
 		    bashtypes.h xmalloc.h config-top.h config-bot.h \
 		    bashintl.h bashansi.h bashjmp.h alias.h hashlib.h \
 		    conftypes.h unwind_prot.h jobs.h siglist.h
-INSTALLED_BUILTINS_HEADERS = bashgetopt.h common.h getopt.h
+	
 INSTALLED_INCFILES =	 posixstat.h ansi_stdlib.h filecntl.h posixdir.h \
 	memalloc.h stdc.h posixjmp.h posixwait.h posixtime.h systimes.h \
 	unionwait.h maxpath.h shtty.h typemax.h ocache.h chartypes.h gettext.h \
 	posixstat.h shmbchar.h shmbutil.h stat-time.h
 
 # header files chosen based on running of configure
-SIGNAMES_H = @SIGNAMES_H@
 
 # object files chosen based on running of configure
-JOBS_O = @JOBS_O@
-SIGLIST_O = @SIGLIST_O@
-SIGNAMES_O = @SIGNAMES_O@
 
 # Matching object files.
 OBJECTS	 = shell.o eval.o y.tab.o general.o make_cmd.o print_cmd.o $(GLOBO) \
@@ -563,7 +485,7 @@ CREATED_MAKEFILES = Makefile builtins/Makefile doc/Makefile \
 		    examples/loadables/Makefile.inc \
 		    examples/loadables/perl/Makefile support/Makefile \
 		    lib/intl/Makefile po/Makefile po/Makefile.in
-CREATED_HEADERS = signames.h config.h pathnames.h version.h y.tab.h \
+	
 		  ${DEFDIR}/builtext.h
 
 OTHER_DOCS = $(srcdir)/CHANGES $(srcdir)/COMPAT $(srcdir)/NEWS $(srcdir)/POSIX \
