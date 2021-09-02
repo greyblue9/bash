@@ -26,14 +26,14 @@
 # configuration section:
 #	these variables are filled in by the make target in Makefile
 #
-MACHINE="x86_64"
+MACHINE="aarch64"
 OS="linux-gnu"
 CC="gcc"
-CFLAGS="-g -O2 -Wno-parentheses -Wno-format-security"
+CFLAGS="-g -O2 "
 RELEASE="5.1"
 PATCHLEVEL="!PATCHLEVEL!"
 RELSTATUS="release"
-MACHTYPE="x86_64-pc-linux-gnu"
+MACHTYPE="aarch64-unknown-linux-gnu"
 
 PATH=/bin:/usr/bin:/usr/local/bin:$PATH
 export PATH
