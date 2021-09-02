@@ -1,4 +1,14 @@
 /* config.h.in.  Generated from configure.ac by autoheader.  */
+typedef signed short bits16_t;
+typedef signed int bits32_t;
+typedef signed long long bits64_t;
+typedef signed short int_least16_t;
+typedef signed char int_least8_t;
+typedef unsigned short u_bits16_t;
+typedef unsigned int u_bits32_t;
+typedef unsigned int u_int32_t;
+typedef signed short uint_least16_t;
+typedef signed char uint_least8_t;
 
 /* Define if building universal (internal helper macro) */
 #undef AC_APPLE_UNIVERSAL_BUILD
